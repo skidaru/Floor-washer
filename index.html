@@ -2,14 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HTML TEST</title>
-    <script type="module" src="/src/playgama-bridge.js"></script>
+    <style media='screen' type='text/css'>
+      @font-face {
+        font-family: 'RedOctoberRough';
+        src: url('/font/RedOctoberRough-Z3dx.ttf');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+  
+      
+  </style>
+  
+  <div style="font-family:RedOctoberRough; position:absolute; left:-1000px; visibility:hidden;">.</div>
   </head>
   <body>
-    <!-- <div id="app"></div> -->
+    <div id="app"></div>
     
+    <script type="module" src="/src/playgama-bridge.js" ></script>
     <script type="module" src="/src/main.ts"></script>
+    
+
   </body>
 </html>

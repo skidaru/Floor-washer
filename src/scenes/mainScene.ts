@@ -1,21 +1,28 @@
-// import { button } from "../GUI/button";
-import { Button } from "../GUI/button";
-import { Image } from "../GUI/image";
+
+import { textDataRU } from "../data/textData";
+import { TextManager } from "../GUI/textManager";
 
 export class mainScene extends Phaser.Scene{
+  private textManager: TextManager | undefined;
+  private texts: Text[] = []; 
+
   constructor(){
     super('mainScene')
   }
-    create() {
 
-      const tesd = this.add.text(
-        93, 489,
-        'Промывальщик полов на минималках',
-        {fontSize: '47px', fill: '#fff',
-          align: 'left', fontFamily: 'RedOctoberRough'})
-        .setOrigin(0, 0)
-        .setDepth(2);
-    }  
+  preload(){
+
+  }
+
+  create(){
+        this.textManager = new TextManager(this);
+
+//@ts-ignore
+        this.texts = this.textManager.createText(textDataRU.menu);
+        this.texts.forEach((text) => {
+            console.log(text);
+        });
+  }  
 }
 
   

@@ -1,25 +1,29 @@
 export class preload extends Phaser.Scene{
+
     constructor() {
         super('preload');
     }
 
 
     preload(){
-        // @ts-ignore
-        window.bridge.initialize()
-    .then(() => {
-        console.log("NIGGERS");
-        
-    })
-    .catch((error: string) => {
-        console.log(error);
-        
-    })
+        const font = new FontFace('MyCustomFont', 'url(/fonts/MyCustomFont.woff2)');
+        font.load().then(() => {
+            document.fonts.add(font);
+            // Запуск игры или других действий после загрузки шрифта
+        });
 
     }
 
     create(){
-
-        this.scene.start('mainScene')
+        window.bridge.initialize()
+        .then(() => {
+            window.bridge.platform.sendMessage("game_ready")
+            this.scene.start('mainScene')
+        })
+        .catch((error: string) => {
+            console.log(error);
+            
+        })
+        
     }
 }
