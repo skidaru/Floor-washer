@@ -7,6 +7,8 @@ export class Text extends Phaser.GameObjects.Text {
         fontFamily: string = 'RedOctoberRough',
         fontSize: number = 16,
         color: string = '#ffffff',
+        depth: number = 0,
+        visible: boolean = false
     ) {
         super(scene, x, y, text, {
             fontFamily: fontFamily,
@@ -17,6 +19,8 @@ export class Text extends Phaser.GameObjects.Text {
         scene.add.existing(this);
 
         this.setOrigin(0, 0);
+        this.setDepth(depth);
+        this.visible = visible;
     }
     public setTextFont(fontFamily: string, fontSize: number): void {
         this.setStyle({

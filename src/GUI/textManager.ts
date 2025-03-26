@@ -1,4 +1,4 @@
-import { Text } from "./text"; // Импортируем ваш класс Text
+import { Text } from "./text";
 
 export class TextManager {
     private scene: Phaser.Scene;
@@ -7,56 +7,27 @@ export class TextManager {
         this.scene = scene;
     }
 
-    // Метод для создания текстов на основе данных
-    public createText(data: any): Text[] {
-        const texts: Text[] = []; // Массив для хранения созданных текстов
+    public createText(textData: any, textArray: Text[] ): void {
+        for (const key in textData) {
+            if (textData[key]?.text) {
+                const element = textData[key];
 
-        // Рекурсивно обходим данные и создаем текстовые объекты
-        const createTextRecursive = (obj: any, parentKey?: string) => {
-            for (const key in obj) {
-                const currentKey = parentKey ? `${parentKey}.${key}` : key;
+                // Создаём новый текст на сцене с нужными параметрами
+                const newText = new Text(
+                    this.scene,
+                    element.x,
+                    element.y,
+                    element.text,
+                    'RedOctoberRough', // Задаётся шрифт (можно изменить)
+                    element.fontSize,
+                    element.color || '#ffffff',
+                    element.depth,
+                    element.visible || false // Цвет текста по умолчанию
+                );
 
-                if (typeof obj[key] === 'object' && obj[key] !== null) {
-                    // Если это вложенный объект, рекурсивно продолжаем обход
-                    createTextRecursive(obj[key], currentKey);
-                } else if (currentKey.endsWith('text')) {
-                    // Если это текстовый объект, создаем его
-                    const textData = this.getTextData(data, currentKey.replace('.text', ''));
-                    if (textData) {
-                        const { text, x, y, fontSize } = textData;
-                        const textObject = new Text(
-                            this.scene,
-                            x,
-                            y,
-                            text,
-                            'RedOctoberRough', // Шрифт по умолчанию
-                            fontSize, // Размер шрифта из данных
-                            '#ffffff' // Цвет по умолчанию
-                        );
-                        texts.push(textObject); // Добавляем текст в массив
-                    }
-                }
+                // Добавляем созданный текст в массив textArray
+                textArray.push(newText);
             }
-        };
-
-        createTextRecursive(data);
-        return texts; // Возвращаем массив созданных текстов
-    }
-
-    // Метод для получения данных текста по ключу
-    private getTextData(data: any, key: string): { text: string; x: number; y: number; fontSize: number } | undefined {
-        const keys = key.split('.'); // Разделяем ключ на части (например, 'menu.logo')
-        let currentData = data;
-
-        // Рекурсивно ищем данные по ключу
-        for (const k of keys) {
-            if (currentData[k] !== undefined) {
-                currentData = currentData[k];
-            } else {
-                return undefined;
         }
-
-        return currentData;
     }
-}
 }

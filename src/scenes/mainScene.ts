@@ -16,12 +16,10 @@ export class mainScene extends Phaser.Scene{
 
   create(){
         this.textManager = new TextManager(this);
-
-//@ts-ignore
-        this.texts = this.textManager.createText(textDataRU.menu);
-        this.texts.forEach((text) => {
-            console.log(text);
-        });
+        //@ts-ignore
+        this.textManager.createText(textDataRU.menu, this.texts)
+        console.log(this.texts);
+        
   }  
 }
 
