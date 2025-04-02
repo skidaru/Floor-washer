@@ -16,11 +16,24 @@ export class Text extends Phaser.GameObjects.Text {
             color: color,
         });
 
-        scene.add.existing(this);
-
         this.setOrigin(0, 0);
+        
+        const currentCenterX = this.x +
+        this.displayWidth * (0.5 - this.originX);
+      
+        const currentCenterY = this.y +
+        this.displayHeight * (0.5 - this.originY);
+
+        this.setPosition(currentCenterX,
+            currentCenterY);
+      
+        this.setOrigin(0.5, 0.5);
+
         this.setDepth(depth);
+
         this.visible = visible;
+
+        scene.add.existing(this);
     }
     public setTextFont(fontFamily: string, fontSize: number): void {
         this.setStyle({

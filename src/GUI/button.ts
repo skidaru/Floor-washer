@@ -1,6 +1,5 @@
 import { Image } from "./image";
 
-
 export class Button extends Image{
     constructor(
         scene: Phaser.Scene,
@@ -9,11 +8,9 @@ export class Button extends Image{
         texture: string,
         frame: string | number | undefined,
         depth: number = 0,
-        onClick: () => void
+        visible: boolean = false,
     ){
-        super(scene, x, y, texture, frame)
-
-        scene.add.existing(this);
+        super(scene, x, y, texture, frame, depth, visible)
 
         this.setInteractive({ useHandCursor: true })
 
@@ -21,7 +18,6 @@ export class Button extends Image{
             this.setScale(0.9);
         });
       
-
         this.on('pointerup', () => {
             this.setScale(1);
         });
@@ -30,21 +26,7 @@ export class Button extends Image{
             this.setScale(1);
         });
 
-        if (onClick) {
-            this.on('pointerdown', onClick);
-          }
-        
-          this.setOrigin(0, 0);
-
-          const currentCenterX = this.x +
-          this.displayWidth * (0.5 - this.originX);
-        
-          const currentCenterY = this.y +
-          this.displayHeight * (0.5 - this.originY);
-
-          this.setPosition(currentCenterX, currentCenterY);
-        
-          this.setOrigin(0.5, 0.5);
+        scene.add.existing(this);
           
     }
 }

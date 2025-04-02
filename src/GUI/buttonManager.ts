@@ -7,9 +7,8 @@ export class ButtonManager {
         this.scene = scene;
     }
 
-    public createButton(buttonData: any, buttonArray: Button[]): void {
+    public createButton(buttonData: any, buttonMap: Record<string, Button>): void {
         for (const key in buttonData) {
-            if (buttonData[key]?.button) {
                 const element = buttonData[key];
 
                 const newButton = new Button(
@@ -18,12 +17,12 @@ export class ButtonManager {
                     element.y,
                     element.texture,
                     element.frame,
-                    element.func,
-                    element.depth
+                    element.depth,
+                    element.visible,
                 );
 
-                buttonArray.push(newButton);
-            }
+                buttonMap[key] = newButton;
         }
     }
 }
+

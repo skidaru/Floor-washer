@@ -18,6 +18,7 @@ export class ImageManager {
                 element.texture,
                 element.frame,
                 element.depth,
+                element.visible
             );
 
             imageMap[key] = newImage;

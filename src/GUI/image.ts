@@ -26,6 +26,8 @@ export class Image extends Phaser.GameObjects.Sprite{
         
         this.setDepth(depth)
 
+        this.visible = visible;
+
         scene.add.existing(this);
     }
 }

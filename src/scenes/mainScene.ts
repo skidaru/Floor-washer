@@ -37,7 +37,7 @@ export class mainScene extends Phaser.Scene{
         this.buttonManager.createButton(
           buttonDataRU.menu, this.buttons);
 
-          console.log(this.images);
+        console.log(this.buttons);
           
         
   }  

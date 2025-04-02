@@ -13,6 +13,7 @@ interface ImageItem {
     texture: string,
     frame: any,
     depth: number,
+    visible: boolean,
 }
 
 export const imageDataRU : ImageDataStructure = {
@@ -22,14 +23,16 @@ export const imageDataRU : ImageDataStructure = {
             y: 0,
             texture: 'loadingScreen',
             frame: undefined,
-            depth: 0
+            depth: 0,
+            visible: true
         },
         graphic1 : {
             x: 0,
             y: 0,
             texture: 'menuGraphic1',
             frame: undefined,
-            depth: 1
+            depth: 1,
+            visible: true
         },
     }
 }

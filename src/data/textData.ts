@@ -37,7 +37,7 @@ export const textDataRU : TextDataStructure = {
             fontSize: 64,
             color: '#000',
             depth: 2,
-            visible: false
+            visible: true
         },
     }
 }
