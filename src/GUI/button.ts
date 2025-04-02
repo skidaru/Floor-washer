@@ -8,6 +8,7 @@ export class Button extends Image{
         y: number,
         texture: string,
         frame: string | number | undefined,
+        depth: number = 0,
         onClick: () => void
     ){
         super(scene, x, y, texture, frame)
@@ -32,16 +33,19 @@ export class Button extends Image{
         if (onClick) {
             this.on('pointerdown', onClick);
           }
+        
+          this.setOrigin(0, 0);
 
           const currentCenterX = this.x +
-          this.displayWidth * (0.5 - this.originX)
+          this.displayWidth * (0.5 - this.originX);
         
           const currentCenterY = this.y +
-          this.displayHeight * (0.5 - this.originY)
+          this.displayHeight * (0.5 - this.originY);
+
+          this.setPosition(currentCenterX, currentCenterY);
         
-          this.setOrigin(0.5, 0.5)
-        
-          this.setPosition(currentCenterX, currentCenterY)
+          this.setOrigin(0.5, 0.5);
+          
     }
 }
 

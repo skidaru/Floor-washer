@@ -1,4 +1,25 @@
-export const textDataRU : object = {
+interface TextDataStructure {
+    menu: TextData;
+}
+
+interface TextData {
+    logo: TextItem;
+    playButtonText: TextItem;
+    // madeBy?: TextItem; // необязательное поле
+}
+
+interface TextItem {
+    text: string;
+    x: number;
+    y: number;
+    fontSize: number;
+    color: string;
+    depth: number;
+    visible: boolean;
+}
+
+
+export const textDataRU : TextDataStructure = {
     menu: {
         logo: {
             text: `ПРОМЫВАЛЬЩИК\nПОЛОВ`,
@@ -18,11 +39,5 @@ export const textDataRU : object = {
             depth: 2,
             visible: false
         },
-        // madeBy: {
-        //     text: `MAdE By SKIdARU x CBTM`,
-        //     x: 40,
-        //     y: 726,
-        //     fontSize: 16
-        // }
     }
 }

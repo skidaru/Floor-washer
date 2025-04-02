@@ -9,9 +9,20 @@ export class preload extends Phaser.Scene{
         const font = new FontFace('MyCustomFont', 'url(/fonts/MyCustomFont.woff2)');
         font.load().then(() => {
             document.fonts.add(font);
-            // Запуск игры или других действий после загрузки шрифта
         });
 
+        this.load.image(
+            'loadingScreen',
+            '/assets/menu-background.jpg'
+        );
+        this.load.image(
+            'menuGraphic1',
+            '/assets/menu-background-figure.png'
+        );
+        this.load.atlas(
+            'menu',
+            'assets/menu-atlas.png',
+            'assets/menu-atlas.json');
     }
 
     create(){
