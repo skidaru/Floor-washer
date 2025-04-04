@@ -4,10 +4,10 @@ export class Image extends Phaser.GameObjects.Sprite{
         x: number,
         y: number,
         texture: string,
-        frame: string | number | undefined,
+        frame?: string,
         depth: number = 0,
         visible: boolean = false,
-        
+         
     ){
         super(scene, x, y, texture, frame)
 

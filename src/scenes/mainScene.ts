@@ -1,6 +1,6 @@
 import { textDataRU } from "../data/textData";
-import { imageDataRU } from "../data/imageData";
-import { buttonDataRU } from "../data/ButtonData";
+import { imageData } from "../data/imageData";
+import { buttonData } from "../data/ButtonData";
 
 import { TextManager } from "../GUI/textManager";
 import { ImageManager } from "../GUI/imageManager";
@@ -11,33 +11,34 @@ import { Image } from "../GUI/image";
 import { Button } from "../GUI/button";
 
 export class mainScene extends Phaser.Scene{
-  private textManager: TextManager | undefined;
-  private imageManager: ImageManager | undefined;
-  private buttonManager: ButtonManager | undefined;
+    private textManager: TextManager;
+    private imageManager: ImageManager;
+    private buttonManager: ButtonManager;
 
-  private texts: Record<string, Text> = {};
-  private images: Record<string, Image> = {};
-  private buttons: Record<string, Button> = {};
-  
-  constructor(){
-    super('mainScene')
-  }
+    private texts: Record<string, Text> = {};
+    private images: Record<string, Image> = {};
+    private buttons: Record<string, Button> = {};
+    
+    constructor(){
+        super('mainScene')
+    }
 
-  create(){
-        this.textManager = new TextManager(this);
-        this.buttonManager = new ButtonManager(this);
-        this.imageManager = new ImageManager(this);
-  
-        this.textManager.createText(
-          textDataRU.menu, this.texts);
+    create(){
+	this.textManager = new TextManager(this);
+	this.imageManager = new ImageManager(this);
+	this.buttonManager = new ButtonManager(this);
 
-        this.imageManager.createImage(
-          imageDataRU.menu, this.images);
-        
-        this.buttonManager.createButton(
-          buttonDataRU.menu, this.buttons);
+	this.textManager.createText(
+		textDataRU.menu, this.texts);
 
-        console.log(this.buttons);
+	this.imageManager.createImage(
+		imageData.screens.menu.items, this.images);
+		
+	
+	this.buttonManager.createButton(
+		buttonData.screens.menu.items, this.buttons);
+
+	console.log(this.images);
           
         
   }  

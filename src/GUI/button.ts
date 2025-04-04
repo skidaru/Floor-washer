@@ -6,7 +6,7 @@ export class Button extends Image{
         x: number,
         y: number,
         texture: string,
-        frame: string | number | undefined,
+        frame?: string,
         depth: number = 0,
         visible: boolean = false,
     ){
@@ -15,7 +15,7 @@ export class Button extends Image{
         this.setInteractive({ useHandCursor: true })
 
         this.on('pointerdown', () => {
-            this.setScale(0.9);
+            this.setScale(0.97);
         });
       
         this.on('pointerup', () => {

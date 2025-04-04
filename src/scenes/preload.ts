@@ -6,18 +6,13 @@ export class preload extends Phaser.Scene{
 
 
     preload(){
-        const font = new FontFace('MyCustomFont', 'url(/fonts/MyCustomFont.woff2)');
-        font.load().then(() => {
-            document.fonts.add(font);
-        });
-
         this.load.image(
             'loadingScreen',
-            '/assets/menu-background.jpg'
+            'assets/menu-background.jpg'
         );
         this.load.image(
             'menuGraphic1',
-            '/assets/menu-background-figure.png'
+            'assets/menu-background-figure.png'
         );
         this.load.atlas(
             'menu',
