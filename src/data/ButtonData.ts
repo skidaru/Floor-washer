@@ -1,3 +1,4 @@
+
 interface ButtonDataStructure {
     screens: Record<string, ButtonData>;
 }
@@ -51,11 +52,43 @@ export const buttonData : ButtonDataStructure = {
                     depth: 1,
                     visible: true,
                 },
-                // settingsLanguageButton: ButtonItem,
-                // settingsMusicButton: ButtonItem,
-                // settingsVolumeButton: ButtonItem,
-                // settingsBackButton: ButtonItem,
             }
-        }
+        },
+        menuSettings: {
+            items:{
+                button1: {
+                    x: 533,
+                    y: 286,
+                    texture: 'menu',
+                    frame: 'settings-button-button.png',
+                    depth: 3,
+                    visible: false,
+                },
+                button2: {
+                    x: 533,
+                    y: 374,
+                    texture: 'menu',
+                    frame: 'settings-button-button.png',
+                    depth: 3,
+                    visible: false,
+                },
+                button3: {
+                    x: 533,
+                    y: 462,
+                    texture: 'menu',
+                    frame: 'settings-button-button.png',
+                    depth: 3,
+                    visible: false,
+                },
+                button4: {
+                    x: 533,
+                    y: 550,
+                    texture: 'menu',
+                    frame: 'settings-button-button.png',
+                    depth: 3,
+                    visible: false,
+                },
+            }
+        },
     }
 }

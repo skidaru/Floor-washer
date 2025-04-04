@@ -52,4 +52,6 @@ export class Text extends Phaser.GameObjects.Text {
         this.x = x;
         this.y = y;
     }
+
+    
 }

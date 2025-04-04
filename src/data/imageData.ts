@@ -37,12 +37,21 @@ export const imageData: ImageDataStructure = {
         },
         menuSettings: {
             items: {
-                background: {
-                    x: 0,
-                    y: 0,
-                    texture: 'loadingScreen',
-                    depth: 0,
-                    visible: true
+                settingsBanner: {
+                    x: 456,
+                    y: 64,
+                    texture: 'menu',
+                    frame: 'settings-banner-menu.png',
+                    depth: 2,
+                    visible: false
+                },
+                settingsBar: {
+                    x: 455,
+                    y: 219,
+                    texture: 'menu',
+                    frame: 'settings-bar-menu.png',
+                    depth: 2,
+                    visible: false
                 },
             }
         }
